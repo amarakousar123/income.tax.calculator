@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Income Tax Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .calculator h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Income Tax Calculator</h2>
+    <input type="number" id="income" placeholder="Enter your income in Rs" />
+    <br />
+    <button onclick="calculateTax()">Calculate Tax</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateTax() {
+      const income = document.getElementById('income').value;
+      let tax = 0;
+
+      if (income <= 0) {
+        document.getElementById('result').innerText = "Please enter a valid income.";
+        return;
+      }
+
+      // Example: 10% tax rate
+      tax = income * 0.10;
+
+      document.getElementById('result').innerText = `Your tax is: Rs ${tax.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
